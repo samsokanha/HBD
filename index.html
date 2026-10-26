@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday,my Pengchhiev 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="floating-hearts" id="floating-hearts"></div>
+
+  <main>
+    <!-- SCREEN 1: WELCOME -->
+    <section class="screen active" id="screen1">
+      <div class="card welcome-card">
+        <div class="top-heart">💗</div>
+        <p class="eyebrow">A LITTLE SURPRISE FOR YOU</p>
+        <h1>Happy Birthday,<br><span>My Pengchhiev!</span></h1>
+        <p class="description">
+          Today is all about you, my favorite person.
+          I prepared something special just for you. 💕
+        </p>
+        <div class="birthday-illustration">🎁 🌷 🎂</div>
+        <p class="date">October 26, 2026</p>
+        <button class="primary-btn" onclick="goToScreen(2)">
+          Start My Surprise 💌 →
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: BIRTHDAY CAKE -->
+    <section class="screen" id="screen2">
+      <div class="card">
+        <p class="eyebrow">MAKE A WISH, MY LOVE</p>
+        <h2>Your Birthday Cake 🎂</h2>
+        <p class="description">
+          Light the candles, close your eyes, and make a wish!
+        </p>
+
+        <div class="cake-area">
+          <div class="candles">
+            <button class="candle" aria-label="Candle 1" onclick="toggleCandle(this)">
+              <span class="flame"></span>
+            </button>
+            <button class="candle" aria-label="Candle 1" onclick="toggleCandle(this)">
+              <span class="flame"></span>
+            </button>
+            <button class="candle" aria-label="Candle 1" onclick="toggleCandle(this)">
+              <span class="flame"></span>
+            </button>
+            <button class="candle" aria-label="Candle 1" onclick="toggleCandle(this)">
+              <span class="flame"></span>
+            </button>
+            <button class="candle" aria-label="Candle 1" onclick="toggleCandle(this)">
+              <span class="flame"></span>
+            </button>
+          </div>
+          <div class="cake-top"></div>
+          <div class="cake-middle"><span>♥</span></div>
+          <div class="cake-bottom"></div>
+          <div class="cake-plate"></div>
+        </div>
+
+        <p id="cake-status" class="status">
+          Your candles are glowing, baby! ✨
+        </p>
+
+        <div class="button-row">
+          <button class="secondary-btn" onclick="lightCandles()">
+            Light Candles 🕯️
+          </button>
+          <button class="primary-btn" id="blow-btn" onclick="blowCandles()">
+            Blow Them Out 💨
+          </button>
+        </div>
+
+        <button class="text-btn" onclick="goToScreen(1)">
+          ← Back
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: BIRTHDAY WISH -->
+    <section class="screen" id="screen3">
+      <div class="card wish-card">
+        <div class="big-heart">💖</div>
+        <p class="eyebrow">MY WISH FOR YOU</p>
+        <h2>Happy Birthday, BaoBao!</h2>
+
+        <p class="love-message">
+          My baobao, I hope your birthday brings you
+          endless happiness, beautiful memories, and success
+          in everything you do.
+        </p>
+
+        <p class="love-message">
+          Thank you for being someone so special in my life.
+          May all your dreams come true, and may you always
+          have reasons to smile. No matter how far apart we are,
+          you will always have a special place in my heart.
+        </p>
+
+        <p class="signature">With all my love, always 💗</p>
+
+        <div class="button-row">
+          <button class="secondary-btn" onclick="goToScreen(2)">
+            ← Birthday Cake
+          </button>
+          <button class="primary-btn" onclick="goToScreen(4)">
+            One Last Kiss 💋 →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: ANIME KISS SURPRISE -->
+    <section class="screen kiss-screen" id="screen4">
+      <div class="card kiss-card">
+        <div class="top-heart kiss-top-heart">💗</div>
+        <p class="eyebrow">MY FAVORITE PERSON, TODAY AND ALWAYS</p>
+        <h2 class="kiss-title">Happy Birthday, BaoBao! 🎂</h2>
+
+        <div class="anime-stage" id="animeStage">
+          <span class="anime-sparkle sparkle-a">✧</span>
+          <span class="anime-sparkle sparkle-b">♡</span>
+          <span class="anime-sparkle sparkle-c">✦</span>
+          <img src="images/anime-kiss.png" alt="Cute anime girl making a heart with her hands for Pengchhiev"
+            class="anime-photo">
+          <div class="kiss-message" id="kissMessage">A kiss for my favorite person 💋</div>
+        </div>
+
+        <p class="kiss-intro">If I were beside you right now, I would hold you close, look into your eyes, and give you
+          the sweetest birthday kiss. 💋</p>
+        <p class="kiss-romantic">No matter how far apart we are, my heart is always right beside you. You make my world
+          softer, brighter, and more beautiful. I hope this little heart reminds you how deeply you are loved,
+          babe 💕</p>
+        <p class="kiss-signature">Happy Birthday, Baby. Forever yours. 💖</p>
+
+        <button class="primary-btn kiss-button" onclick="sendKisses()">Send Me More Kisses! 💋</button>
+        <p class="kiss-counter" id="kissCounter">Kisses delivered: 0 ♡</p>
+
+        <div class="final-letter-buttons">
+          <button class="secondary-btn" onclick="goToScreen(3)">← Back to My Birthday Wish</button>
+          <button class="secondary-btn" onclick="goToScreen(1)">Start Our Story Again 💗</button>
+        </div>
+      </div>
+      <div class="kiss-particles" id="kissParticles" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <!-- SURPRISE POPUP -->
+  <div class="surprise-overlay hidden" id="surprise-overlay">
+    <div class="surprise-card">
+      <div class="surprise-emoji">🎉💖🎂</div>
+      <p class="eyebrow">SURPRISE, BIRTHDAY BOY!</p>
+      <h2>I Love You, kmeng due!</h2>
+      <p>
+        May your life be filled with love, laughter, and
+        beautiful moments. If I could be anywhere right now,
+        I'd choose to be right beside you. 💗
+      </p>
+      <button class="primary-btn" onclick="closeSurprise()">
+        See My Birthday Wish 💌
+      </button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
